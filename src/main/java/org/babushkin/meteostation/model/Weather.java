@@ -1,5 +1,6 @@
 package org.babushkin.meteostation.model;
 
+import javax.lang.model.element.Name;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
@@ -20,8 +21,8 @@ public class Weather {
     @Column(name = "humidity")
     private short humidity;
 
-    @Column(name = "source")
-    private int source;
+    @Column(name = "source_id")
+    private long sourceId;
 
     public Weather() {
     }
@@ -64,12 +65,12 @@ public class Weather {
         this.humidity = humidity;
     }
 
-    public int getSource() {
-        return source;
+    public long getSourceId() {
+        return sourceId;
     }
 
-    public void setSource(int source) {
-        this.source = source;
+    public void setSourceId(long sourceId) {
+        this.sourceId = sourceId;
     }
 
     @Override
@@ -93,6 +94,7 @@ public class Weather {
     public String toString() {
         return "Weather{" + "id=" + this.id + ", date = '" + this.date +
                 "\''" + ", airTemperature = '" + this.airTemperature +
-                "\''" + ", humidity = '" + this.humidity + "\'" + '}';
+                "\''" + ", humidity = '" + this.humidity +
+                "\''" + ", source = '" + this.sourceId + "\'" + '}';
     }
 }

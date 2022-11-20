@@ -1,19 +1,27 @@
-DROP TABLE IF EXISTS weather_source;
-DROP TABLE IF EXISTS weather;
+DROP TABLE IF EXISTS "weather";
+DROP SEQUENCE IF EXISTS weather_id_seq;
+CREATE SEQUENCE weather_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1;
 
-CREATE TABLE weather_source
-(
-    id      SERIAL PRIMARY KEY,
-    name    VARCHAR(255),
-    comment VARCHAR
-);
+CREATE TABLE "public"."weather" (
+    "id" bigint DEFAULT nextval('weather_id_seq') NOT NULL,
+    "date" timestamp NOT NULL,
+    "air_temperature" real,
+    "humidity" smallint,
+    "source_id" bigint,
+    CONSTRAINT "weather_pkey" PRIMARY KEY ("id")
+) WITH (oids = false);
 
-CREATE TABLE weather
-(
-    id                  SERIAL PRIMARY KEY,
-    date                TIMESTAMP NOT NULL,
-    air_temperature     REAL,
-    humidity            SMALLINT,
-    sourceId            INTEGER,
-    FOREIGN KEY (sourceId) REFERENCES weather_source (id)
-);
+
+DROP TABLE IF EXISTS "weather_source";
+DROP SEQUENCE IF EXISTS weather_source_id_seq;
+CREATE SEQUENCE weather_source_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1;
+
+CREATE TABLE "public"."weather_source" (
+    "id" bigint DEFAULT nextval('weather_source_id_seq') NOT NULL,
+    "name" character varying(255),
+    "comment" character varying,
+    CONSTRAINT "weather_source_pkey" PRIMARY KEY ("id")
+) WITH (oids = false);
+
+
+ALTER TABLE ONLY "public"."weather" ADD CONSTRAINT "weather_source_id_fkey" FOREIGN KEY (source_id) REFERENCES weather_source(id) NOT DEFERRABLE;
