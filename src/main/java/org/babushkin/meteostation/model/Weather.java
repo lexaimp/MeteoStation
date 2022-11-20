@@ -14,17 +14,19 @@ public class Weather {
     @Column(name = "date")
     private Date date;
 
-    @Column(name = "airTemperature")
+    @Column(name = "air_temperature")
     private double airTemperature;
 
     @Column(name = "humidity")
-    private int humidity;
+    private short humidity;
 
+    @Column(name = "source")
+    private int source;
 
     public Weather() {
     }
 
-    public Weather(double airTemperature, int humidity, Date date) {
+    public Weather(double airTemperature, short humidity, Date date) {
         this.airTemperature = airTemperature;
         this.humidity = humidity;
         this.date = date;
@@ -54,12 +56,20 @@ public class Weather {
         this.airTemperature = airTemperature;
     }
 
-    public int getHumidity() {
+    public short getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(int humidity) {
+    public void setHumidity(short humidity) {
         this.humidity = humidity;
+    }
+
+    public int getSource() {
+        return source;
+    }
+
+    public void setSource(int source) {
+        this.source = source;
     }
 
     @Override
