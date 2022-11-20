@@ -1,18 +1,20 @@
 package org.babushkin.meteostation.advice;
 
-import org.babushkin.meteostation.exception.EmployeeNotFoundException;
+import org.babushkin.meteostation.exception.WeatherNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import java.net.http.WebSocketHandshakeException;
+
 @ControllerAdvice
-public class EmployeeNotFoundAdvice {
+public class WeatherNotFoundAdvice {
     @ResponseBody
-    @ExceptionHandler(EmployeeNotFoundException.class)
+    @ExceptionHandler(WebSocketHandshakeException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String employeeNotFoundHandler(EmployeeNotFoundException ex) {
+    String weatherNotFoundHandler(WeatherNotFoundException ex) {
         return ex.getMessage();
     }
 }
