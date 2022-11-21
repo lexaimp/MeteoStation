@@ -27,10 +27,11 @@ public class Weather {
     public Weather() {
     }
 
-    public Weather(double airTemperature, short humidity, Date date) {
+    public Weather(Date date, double airTemperature, short humidity,  long sourceId) {
+        this.date = date;
         this.airTemperature = airTemperature;
         this.humidity = humidity;
-        this.date = date;
+        this.sourceId = sourceId;
     }
 
     public long getId() {

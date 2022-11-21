@@ -3,6 +3,7 @@ package org.babushkin.meteostation.controller;
 import org.babushkin.meteostation.exception.WeatherNotFoundException;
 import org.babushkin.meteostation.model.Weather;
 import org.babushkin.meteostation.repository.WeatherRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +22,13 @@ public class WeatherController {
         return repository.findAll();
     }
 
-    @PostMapping("weather")
+    @GetMapping("/currentWeather")
+    Weather findByServiceId(long id) {
+//        long id = 1;
+        return repository.findTopBySourceIdOrderByDateDesc(id);
+    }
+
+    @PostMapping("/weather")
     Weather newWeather(@RequestBody Weather newWeather) {
         return repository.save(newWeather);
     }
