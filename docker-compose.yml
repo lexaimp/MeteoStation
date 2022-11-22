@@ -23,11 +23,11 @@ services:
       - 8081:8080
     container_name: adminer
 
-  java-app:
+  app:
     build: .
     restart: always
     ports:
       - 8080:8080
     depends_on:
       - db
-    container_name: java-app
+    container_name: app

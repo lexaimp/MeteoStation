@@ -24,7 +24,6 @@ public class WeatherController {
 
     @GetMapping("/currentWeather")
     Weather findByServiceId(long id) {
-//        long id = 1;
         return repository.findTopBySourceIdOrderByDateDesc(id);
     }
 

@@ -78,9 +78,9 @@ public class Weather {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (!(obj instanceof Weather weather))
+        if (!(obj instanceof Weather))
             return false;
-        return Objects.equals(this.id, weather.id) &&
+        return Objects.equals(this.id, ((Weather) obj).id) &&
                 Objects.equals(this.date, ((Weather) obj).date) &&
                 Objects.equals(this.airTemperature, ((Weather) obj).airTemperature) &&
                 Objects.equals(this.humidity, ((Weather) obj).getHumidity());
