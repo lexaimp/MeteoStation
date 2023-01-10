@@ -1,6 +1,5 @@
 package org.babushkin.meteostation.model;
 
-import javax.lang.model.element.Name;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
@@ -10,7 +9,7 @@ import java.util.Objects;
 public class Weather {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "date")
     private Date date;

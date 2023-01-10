@@ -3,7 +3,6 @@ package org.babushkin.meteostation.controller;
 import org.babushkin.meteostation.exception.WeatherNotFoundException;
 import org.babushkin.meteostation.model.Weather;
 import org.babushkin.meteostation.repository.WeatherRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
