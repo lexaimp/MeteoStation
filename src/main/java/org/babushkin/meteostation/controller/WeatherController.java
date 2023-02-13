@@ -31,7 +31,7 @@ public class WeatherController {
         return repository.save(newWeather);
     }
 
-    @GetMapping("weather/{id}")
+    @GetMapping("/weather/{id}")
     Weather one(@PathVariable Long id) {
         return repository.findById(id).orElseThrow(() -> new WeatherNotFoundException(id));
     }

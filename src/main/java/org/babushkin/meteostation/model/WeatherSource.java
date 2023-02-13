@@ -16,6 +16,9 @@ public class WeatherSource {
     @Column(name = "Comment")
     private String comment;
 
+    @Column(name = "mac_address")
+    private String macAddress;
+
     public WeatherSource() {
     }
 
@@ -48,6 +51,14 @@ public class WeatherSource {
         this.comment = comment;
     }
 
+    public String getMacAddress() {
+        return macAddress;
+    }
+
+    public void setMacAddress(String macAddress) {
+        this.macAddress = macAddress;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -67,6 +78,7 @@ public class WeatherSource {
     @Override
     public String toString() {
         return "Weather{" + "id=" + this.id + ", name = '" + this.name +
-                "\''" + ", comment = '" + this.comment + "\'" + '}';
+                "\''" + ", comment = '" + this.comment + "\'" +
+                "\''" + ", macAddress = '" + this.macAddress + "\'" + '}';
     }
 }
