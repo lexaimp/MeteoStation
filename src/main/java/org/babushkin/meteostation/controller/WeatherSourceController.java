@@ -1,5 +1,6 @@
 package org.babushkin.meteostation.controller;
 
+import org.babushkin.meteostation.exception.WeatherSourceNotFoundException;
 import org.babushkin.meteostation.model.WeatherSource;
 import org.babushkin.meteostation.repository.WeatherSourceRepository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,8 @@ public class WeatherSourceController {
 
     @GetMapping("/sourceId/{mac}")
     WeatherSource one(@PathVariable String mac) {
-        return repository.findByMacAddress(mac);
+        return (WeatherSource) repository.findByMacAddress(mac).orElseThrow(() -> new WeatherSourceNotFoundException(mac));
+
     }
 
     @GetMapping("/sourceId")

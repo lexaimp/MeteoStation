@@ -1,6 +1,6 @@
 package org.babushkin.meteostation.advice;
 
-import org.babushkin.meteostation.exception.WeatherNotFoundException;
+import org.babushkin.meteostation.exception.WeatherSourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -14,7 +14,7 @@ public class WeatherSourceNotFoundAdvice {
     @ResponseBody
     @ExceptionHandler(WebSocketHandshakeException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String weatherNotFoundHandler(WeatherNotFoundException ex) {
+    String weatherNotFoundHandler(WeatherSourceNotFoundException ex) {
         return ex.getMessage();
     }
 }
