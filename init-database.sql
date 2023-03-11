@@ -4,7 +4,7 @@ CREATE TABLE "public"."weather" (
     "id" bigint GENERATED ALWAYS AS IDENTITY (INCREMENT 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1) ,
     "date" timestamp NOT NULL,
     "air_temperature" real,
-    "humidity" smallint,
+    "humidity" real,
     "source_id" bigint,
     CONSTRAINT "weather_pkey" PRIMARY KEY ("id")
 ) WITH (oids = false);

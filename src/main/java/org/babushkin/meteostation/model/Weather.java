@@ -18,7 +18,7 @@ public class Weather {
     private double airTemperature;
 
     @Column(name = "humidity")
-    private short humidity;
+    private double humidity;
 
     @Column(name = "source_id")
     private long sourceId;
@@ -26,7 +26,7 @@ public class Weather {
     public Weather() {
     }
 
-    public Weather(Date date, double airTemperature, short humidity,  long sourceId) {
+    public Weather(Date date, double airTemperature, double humidity, long sourceId) {
         this.date = date;
         this.airTemperature = airTemperature;
         this.humidity = humidity;
@@ -57,11 +57,11 @@ public class Weather {
         this.airTemperature = airTemperature;
     }
 
-    public short getHumidity() {
+    public double getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(short humidity) {
+    public void setHumidity(double humidity) {
         this.humidity = humidity;
     }
 
