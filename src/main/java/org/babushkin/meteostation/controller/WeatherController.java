@@ -46,7 +46,7 @@ public class WeatherController {
         if (request.getMac() == null || request.getMac().isEmpty()) {
             throw new RuntimeException("mac address cannot be empty or null"); // TODO Переписать чтобы ошибка вовращалась в ответе json-ом
         }
-        Weather weather = new Weather(new Date(), request.getAirTemperature(), request.getHumidity(), sourceRepository.findByMacAddress(request.getMac()).getId());
+        Weather weather = new Weather(new Date(), request.getAirTemperature(), request.getHumidity(), sourceRepository.getIdByMacAddress(request.getMac()));
         return repository.save(weather);
     }
 
