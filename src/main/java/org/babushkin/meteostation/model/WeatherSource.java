@@ -109,6 +109,6 @@ public class WeatherSource {
                 "\''" + ", comment = '" + this.comment + "\'" +
                 "\''" + ", macAddress = '" + this.macAddress + "\'" +
                 "\''" + ", typeId = '" + this.typeId + "\'" +
-                "\''" + ", version = '" + this.version + "\'" +'}';
+                "\''" + ", version = '" + this.version + "\'" + '}';
     }
 }
