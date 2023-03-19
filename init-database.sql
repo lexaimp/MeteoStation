@@ -23,7 +23,7 @@ CREATE TABLE "public"."weather_source" (
     "id" bigint GENERATED ALWAYS AS IDENTITY (INCREMENT 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1) ,
     "name" character varying(255),
     "comment" character varying,
-    "mac_address" character(17),
+    "mac_address" character(17) UNIQUE,
     "type_id" bigint NOT NULL,
     "version" real,
     CONSTRAINT "weather_source_pkey" PRIMARY KEY ("id")
