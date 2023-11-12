@@ -22,9 +22,16 @@ public class WeatherSourceController {
         return repository.findAll();
     }
 
+
+
     @GetMapping("api/v1/source/{mac}")
     WeatherSource one(@PathVariable String mac) {
         return repository.findByMacAddress(mac).orElseThrow(() -> new WeatherSourceNotFoundException(mac));
+    }
+
+    @GetMapping("api/v1/source2/{comment}")
+    WeatherSource getComment(@PathVariable String comment) {
+        return repository.findByComment(comment).orElseThrow(() -> new WeatherSourceNotFoundException(comment));
     }
 
     @PostMapping("api/v1/source")

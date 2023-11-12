@@ -11,6 +11,8 @@ public interface WeatherSourceRepository extends JpaRepository<WeatherSource, Lo
 
     Optional<WeatherSource> findByMacAddress(String mac);
 
+    Optional<WeatherSource> findByComment(String comment);
+
     @Query(value = "SELECT ws.id FROM weather_source ws WHERE ws.mac_address = :mac", nativeQuery = true)
     long getIdByMacAddress(@Param("mac") String mac);
 }
